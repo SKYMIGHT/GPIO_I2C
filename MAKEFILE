@@ -1,0 +1,15 @@
+OBJS    =	inp.obj outp.obj 
+
+target:
+	nmake	$(OBJS)
+        cl      /AC /Gs /F 7000 smbus.c $(OBJS) /FeRW.exe
+
+inp.obj:	inp.asm
+        ml      /c inp.asm
+
+outp.obj:	outp.asm
+        ml      /c outp.asm
+
+clean:
+	del	*.obj
+	del	*.exe

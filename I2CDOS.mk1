@@ -1,0 +1,14 @@
+!define BLANK ""
+C:\I2C_DOS_1.2\I2CDOS.obj : C:\I2C_DOS_1.2\I2CDOS.c .AUTODEPEND
+ @C:
+ cd C:\I2C_DOS_1.2
+ *wcc386 I2CDOS.c -i="C:\WATCOM/h" -w4 -e25 -zq -od -d2 -6r -bt=dos -fo=.obj&
+ -mf
+
+C:\I2C_DOS_1.2\I2CDOS.exe : C:\I2C_DOS_1.2\I2CDOS.obj .AUTODEPEND
+ @C:
+ cd C:\I2C_DOS_1.2
+ @%write I2CDOS.lk1 FIL I2CDOS.obj
+ @%append I2CDOS.lk1 
+ *wlink name I2CDOS d all sys dos4g op m op maxe=25 op q op symf @I2CDOS.lk1
+
